@@ -1,0 +1,5 @@
+rootProject.name = 'book-rental-service'
+include('best-book-service')
+include('book-service')
+include('rental-service')
+include('user-service')

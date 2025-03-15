@@ -1,0 +1,50 @@
+version: '3'
+
+services:
+  rental-service:
+    container_name: rental-service
+    build:
+      context: ../../
+      dockerfile: rental-service/Dockerfile
+    ports:
+      - "8081:8081"
+    restart: unless-stopped
+    networks:
+      - service_network
+
+  book-service:
+    container_name: book-service
+    build:
+      context: ../../
+      dockerfile: book-service/Dockerfile
+    ports:
+      - "8082:8082"
+    restart: unless-stopped
+    networks:
+      - service_network
+
+  user-service:
+    container_name: user-service
+    build:
+      context: ../../
+      dockerfile: user-service/Dockerfile
+    ports:
+      - "8083:8083"
+    restart: unless-stopped
+    networks:
+      - service_network
+
+  best-book-service:
+    container_name: best-book-service
+    build:
+      context: ../../
+      dockerfile: best-book-service/Dockerfile
+    ports:
+      - "8084:8084"
+    restart: unless-stopped
+    networks:
+      - service_network
+
+networks:
+  service_network:
+    external: true

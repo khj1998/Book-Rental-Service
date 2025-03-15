@@ -1,0 +1,38 @@
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  application:
+    name: bestbooks
+  profiles:
+    active: default
+  data:
+    mongodb:
+      host: mongodb
+      port: 27017
+      database: test
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+  kafka:
+    bootstrap-servers: kafka-msa:9092
+server:
+  port: 8084
+
+consumer:
+  groudid:
+    name: bestbook
+  topic1:
+    name: rental_rent
+  topic2:
+    name: rental_return
+  topic3:
+    name: overdue_clear
+
+
+logging:
+  level:
+    org.hibernate.SQL: debug
